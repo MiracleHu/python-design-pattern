@@ -2,6 +2,10 @@ class Singleton:
     _instance = None  # Keep instance reference
 
     def __new__(cls, *args, **kwargs):
+        '''
+        we override the __new__ method (Python’s special method to instantiate objects) to control the object creation.
+        The object gets created with the __new__ method, but before this, it checks whether the object already exists.
+        '''
         if not cls._instance:
             cls._instance = object.__new__(cls) # cls._instance = super(Singleton, cls).__new__(cls)
         return cls._instance
